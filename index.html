@@ -8,57 +8,59 @@
     <title>Herbario Digital UIMQROO</title>
 </head>
 <body style="margin: 0px; overflow: hidden;">
-    <!-- Ajustamos la escena para evitar el zoom digital automático -->
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         
         <!-- 1. GUAYABA (Pichi’) -->
         <a-marker type="pattern" url="guayaba.patt">
-            <!-- CONTENEDOR MAESTRO: Reduce todo al 15% para que no ocupe toda la pantalla -->
-            <a-entity scale="0.15 0.15 0.15" position="0 0 0">
-                <a-plane rotation="-90 0 0" width="4" height="3.5" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="Pichi' (Guayaba)" position="0 1.2 0.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Psidium guajava" position="0 0.3 0.2" rotation="-90 0 0" align="center" color="#FFF000" width="4"></a-text>
-                <a-text value="Uso: Antidiarreico y para\nproblemas estomacales." position="0 -0.8 0.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5"></a-text>
+            <!-- CONTENEDOR: Escala 0.3 (el doble de la anterior) -->
+            <a-entity scale="0.3 0.3 0.3">
+                <a-plane rotation="-90 0 0" width="4.5" height="4.5" color="#1b4332" material="opacity: 0.9"></a-plane>
+                <!-- Título: Posición -1.5 (Arriba) -->
+                <a-text value="Pichi' (Guayaba)" position="0 0.1 -1.5" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
+                <!-- Nombre Científico: Posición 0 (Centro) -->
+                <a-text value="Psidium guajava" position="0 0.1 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
+                <!-- Uso Medicinal: Posición 1.5 (Abajo) -->
+                <a-text value="Uso: Antidiarreico y para\nproblemas estomacales." position="0 0.1 1.5" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.8"></a-text>
             </a-entity>
         </a-marker>
 
         <!-- 2. ALBAHACA (X'kakaltuum) -->
         <a-marker type="pattern" url="albahaca.patt">
-            <a-entity scale="0.15 0.15 0.15" position="0 0 0">
-                <a-plane rotation="-90 0 0" width="4" height="3.5" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="X'kakaltuum (Albahaca)" position="0 1.2 0.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Ocimum campechianum" position="0 0.3 0.2" rotation="-90 0 0" align="center" color="#FFF000" width="4"></a-text>
-                <a-text value="Uso: Alivio de la fiebre y\nproblemas digestivos." position="0 -0.8 0.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5"></a-text>
+            <a-entity scale="0.3 0.3 0.3">
+                <a-plane rotation="-90 0 0" width="4.5" height="4.5" color="#1b4332" material="opacity: 0.9"></a-plane>
+                <a-text value="X'kakaltuum (Albahaca)" position="0 0.1 -1.5" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
+                <a-text value="Ocimum campechianum" position="0 0.1 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
+                <a-text value="Uso: Alivio de la fiebre y\nproblemas digestivos." position="0 0.1 1.5" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.8"></a-text>
             </a-entity>
         </a-marker>
 
         <!-- 3. SÁBILA (Hunab-ku) -->
         <a-marker type="pattern" url="sabila.patt">
-            <a-entity scale="0.15 0.15 0.15" position="0 0 0">
-                <a-plane rotation="-90 0 0" width="4" height="3.5" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="Hunab-ku (Sabila)" position="0 1.2 0.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Aloe vera" position="0 0.3 0.2" rotation="-90 0 0" align="center" color="#FFF000" width="4"></a-text>
-                <a-text value="Uso: Quemaduras, golpes e\nirritaciones cutaneas." position="0 -0.8 0.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5"></a-text>
+            <a-entity scale="0.3 0.3 0.3">
+                <a-plane rotation="-90 0 0" width="4.5" height="4.5" color="#1b4332" material="opacity: 0.9"></a-plane>
+                <a-text value="Hunab-ku (Sabila)" position="0 0.1 -1.5" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
+                <a-text value="Aloe vera" position="0 0.1 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
+                <a-text value="Uso: Quemaduras, golpes e\nirritaciones cutaneas." position="0 0.1 1.5" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.8"></a-text>
             </a-entity>
         </a-marker>
 
         <!-- 4. MAGUEY MORADO (Chak ts'am) -->
         <a-marker type="pattern" url="maguey.patt">
-            <a-entity scale="0.15 0.15 0.15" position="0 0 0">
-                <a-plane rotation="-90 0 0" width="4" height="3.5" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="Chak ts'am (Maguey)" position="0 1.2 0.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Tradescantia spathacea" position="0 0.3 0.2" rotation="-90 0 0" align="center" color="#FFF000" width="4"></a-text>
-                <a-text value="Uso: Antiinflamatorio y para\nafecciones respiratorias." position="0 -0.8 0.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5"></a-text>
+            <a-entity scale="0.3 0.3 0.3">
+                <a-plane rotation="-90 0 0" width="4.5" height="4.5" color="#1b4332" material="opacity: 0.9"></a-plane>
+                <a-text value="Chak ts'am (Maguey)" position="0 0.1 -1.5" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
+                <a-text value="Tradescantia spathacea" position="0 0.1 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
+                <a-text value="Uso: Antiinflamatorio y para\nafecciones respiratorias." position="0 0.1 1.5" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.8"></a-text>
             </a-entity>
         </a-marker>
 
         <!-- 5. RUDA (Lool) -->
         <a-marker type="pattern" url="ruda.patt">
-            <a-entity scale="0.15 0.15 0.15" position="0 0 0">
-                <a-plane rotation="-90 0 0" width="4" height="3.5" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="Lool (Ruda)" position="0 1.2 0.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Ruta chalepensis" position="0 0.3 0.2" rotation="-90 0 0" align="center" color="#FFF000" width="4"></a-text>
-                <a-text value="Uso: Dolores de oido, colicos\ny 'mal aire'." position="0 -0.8 0.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5"></a-text>
+            <a-entity scale="0.3 0.3 0.3">
+                <a-plane rotation="-90 0 0" width="4.5" height="4.5" color="#1b4332" material="opacity: 0.9"></a-plane>
+                <a-text value="Lool (Ruda)" position="0 0.1 -1.5" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
+                <a-text value="Ruta chalepensis" position="0 0.1 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
+                <a-text value="Uso: Dolores de oido, colicos\ny 'mal aire'." position="0 0.1 1.5" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.8"></a-text>
             </a-entity>
         </a-marker>
 
@@ -66,6 +68,3 @@
     </a-scene>
 </body>
 </html>
-
-
-
