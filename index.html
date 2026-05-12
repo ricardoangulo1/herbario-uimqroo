@@ -4,56 +4,53 @@
     <meta charset="UTF-8">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <title>Herbario Digital UIMQROO - Guayaba</title>
+    <title>Herbario Digital UIMQROO</title>
 </head>
-
 <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         
+        <!-- Marcador de la Guayaba (Pichi') -->
         <a-marker type="pattern" url="guayaba.patt">
             
-            <!-- PANEL DE FONDO MÁS ANCHO -->
-            <!-- Aumentamos width a 4 y height a 2.5 para que nada se salga -->
+            <!-- PANEL DE FONDO (Más grande para que quepa todo) -->
             <a-plane 
                 position="0 0.5 0" 
                 rotation="-70 0 0" 
-                width="4.2" height="2.8" 
+                width="4.5" height="3.2" 
                 color="#1b4332" 
-                material="opacity: 0.9; transparent: true; side: double">
+                material="opacity: 0.9; transparent: true">
             </a-plane>
 
-            <!-- TEXTOS REUBICADOS (Todos con X=0 para centrar) -->
-            
-            <!-- 1. Nombre Maya y Español (Pichi') -->
+            <!-- 1. NOMBRE MAYA Y ESPAÑOL (Lo que ya ves) -->
             <a-text 
                 value="Pichi' (Guayaba)" 
-                position="0 0.8 0.1" 
+                position="0 1.0 0.2" 
                 rotation="-70 0 0" 
                 align="center" 
                 color="#FFFFFF" 
-                width="5.5">
+                width="5">
             </a-text>
 
-            <!-- 2. Nombre Científico (Psidium guajava) -->
-            <!-- Bajamos un poco el tamaño (width) para que no se salga -->
+            <!-- 2. NOMBRE CIENTÍFICO (Ahora ajustado más cerca del centro) -->
+            <!-- Es vital para el rigor de Salud Comunitaria [2, 6] -->
             <a-text 
                 value="Psidium guajava" 
-                position="0 0.2 0.1" 
+                position="0 0.3 0.2" 
                 rotation="-70 0 0" 
                 align="center" 
                 color="#FFF000" 
                 width="3.5">
             </a-text>
 
-            <!-- 3. Uso Medicinal (Antidiarreico) -->
-            <!-- Cambiamos la posición a -0.5 para que entre en el cuadro -->
+            <!-- 3. USO MEDICINAL (Subido para que no se salga del cuadro) -->
+            <!-- Aquí es donde está el "Saber Ancestral" [3, 7] -->
             <a-text 
                 value="Uso: Antidiarreico y para\nproblemas estomacales." 
-                position="0 -0.5 0.1" 
+                position="0 -0.5 0.2" 
                 rotation="-70 0 0" 
                 align="center" 
                 color="#d8f3dc" 
-                width="2.8">
+                width="3">
             </a-text>
 
         </a-marker>
