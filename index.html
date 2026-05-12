@@ -2,57 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Librerías de RA (A-Frame y AR.js) [2] -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <title>Herbario Digital UIMQROO</title>
+    <title>Herbario Digital UIMQROO - Salud Comunitaria</title>
 </head>
+
 <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         
-        <!-- Marcador de la Guayaba (Pichi') -->
+        <!-- 1. GUAYABA (Pichi’) [1] -->
         <a-marker type="pattern" url="guayaba.patt">
-            
-            <!-- PANEL DE FONDO (Más grande para que quepa todo) -->
-            <a-plane 
-                position="0 0.5 0" 
-                rotation="-70 0 0" 
-                width="4.5" height="3.2" 
-                color="#1b4332" 
-                material="opacity: 0.9; transparent: true">
-            </a-plane>
+            <a-plane position="0 0.5 0" rotation="-70 0 0" width="4.2" height="3.5" color="#1b4332" material="opacity: 0.9; transparent: true"></a-plane>
+            <a-text value="Pichi' (Guayaba)" position="0 1.2 0.2" rotation="-70 0 0" align="center" color="#FFFFFF" width="5"></a-text>
+            <a-text value="Psidium guajava" position="0 0.5 0.2" rotation="-70 0 0" align="center" color="#FFF000" width="3.8"></a-text>
+            <a-text value="Uso: Antidiarreico y para\nproblemas estomacales." position="0 -0.2 0.2" rotation="-70 0 0" align="center" color="#d8f3dc" width="3.2"></a-text>
+        </a-marker>
 
-            <!-- 1. NOMBRE MAYA Y ESPAÑOL (Lo que ya ves) -->
-            <a-text 
-                value="Pichi' (Guayaba)" 
-                position="0 1.0 0.2" 
-                rotation="-70 0 0" 
-                align="center" 
-                color="#FFFFFF" 
-                width="5">
-            </a-text>
+        <!-- 2. ALBAHACA DE MONTE (X'kakaltuum) [1] -->
+        <a-marker type="pattern" url="albahaca.patt">
+            <a-plane position="0 0.5 0" rotation="-70 0 0" width="4.2" height="3.5" color="#1b4332" material="opacity: 0.9; transparent: true"></a-plane>
+            <a-text value="X'kakaltuum (Albahaca)" position="0 1.2 0.2" rotation="-70 0 0" align="center" color="#FFFFFF" width="5"></a-text>
+            <a-text value="Ocimum campechianum" position="0 0.5 0.2" rotation="-70 0 0" align="center" color="#FFF000" width="3.8"></a-text>
+            <a-text value="Uso: Alivio de la fiebre y\nproblemas digestivos." position="0 -0.2 0.2" rotation="-70 0 0" align="center" color="#d8f3dc" width="3.2"></a-text>
+        </a-marker>
 
-            <!-- 2. NOMBRE CIENTÍFICO (Ahora ajustado más cerca del centro) -->
-            <!-- Es vital para el rigor de Salud Comunitaria [2, 6] -->
-            <a-text 
-                value="Psidium guajava" 
-                position="0 0.3 0.2" 
-                rotation="-70 0 0" 
-                align="center" 
-                color="#FFF000" 
-                width="3.5">
-            </a-text>
+        <!-- 3. SÁBILA (Hunab-ku) [1] -->
+        <a-marker type="pattern" url="sabila.patt">
+            <a-plane position="0 0.5 0" rotation="-70 0 0" width="4.2" height="3.5" color="#1b4332" material="opacity: 0.9; transparent: true"></a-plane>
+            <a-text value="Hunab-ku (Sabila)" position="0 1.2 0.2" rotation="-70 0 0" align="center" color="#FFFFFF" width="5"></a-text>
+            <a-text value="Aloe vera" position="0 0.5 0.2" rotation="-70 0 0" align="center" color="#FFF000" width="3.8"></a-text>
+            <a-text value="Uso: Tratamiento de quemaduras,\nirritaciones y golpes." position="0 -0.2 0.2" rotation="-70 0 0" align="center" color="#d8f3dc" width="3.2"></a-text>
+        </a-marker>
 
-            <!-- 3. USO MEDICINAL (Subido para que no se salga del cuadro) -->
-            <!-- Aquí es donde está el "Saber Ancestral" [3, 7] -->
-            <a-text 
-                value="Uso: Antidiarreico y para\nproblemas estomacales." 
-                position="0 -0.5 0.2" 
-                rotation="-70 0 0" 
-                align="center" 
-                color="#d8f3dc" 
-                width="3">
-            </a-text>
+        <!-- 4. MAGUEY MORADO (Chak ts'am) [1] -->
+        <a-marker type="pattern" url="maguey.patt">
+            <a-plane position="0 0.5 0" rotation="-70 0 0" width="4.2" height="3.5" color="#1b4332" material="opacity: 0.9; transparent: true"></a-plane>
+            <a-text value="Chak ts'am (Maguey)" position="0 1.2 0.2" rotation="-70 0 0" align="center" color="#FFFFFF" width="5"></a-text>
+            <a-text value="Tradescantia spathacea" position="0 0.5 0.2" rotation="-70 0 0" align="center" color="#FFF000" width="3.8"></a-text>
+            <a-text value="Uso: Antiinflamatorio y auxiliar\nen problemas respiratorios." position="0 -0.2 0.2" rotation="-70 0 0" align="center" color="#d8f3dc" width="3.2"></a-text>
+        </a-marker>
 
+        <!-- 5. RUDA (Lool) [1] -->
+        <a-marker type="pattern" url="ruda.patt">
+            <a-plane position="0 0.5 0" rotation="-70 0 0" width="4.2" height="3.5" color="#1b4332" material="opacity: 0.9; transparent: true"></a-plane>
+            <a-text value="Lool (Ruda)" position="0 1.2 0.2" rotation="-70 0 0" align="center" color="#FFFFFF" width="5"></a-text>
+            <a-text value="Ruta chalepensis" position="0 0.5 0.2" rotation="-70 0 0" align="center" color="#FFF000" width="3.8"></a-text>
+            <a-text value="Uso: Dolores de oido, colicos\ny 'mal aire'." position="0 -0.2 0.2" rotation="-70 0 0" align="center" color="#d8f3dc" width="3.2"></a-text>
         </a-marker>
 
         <a-entity camera></a-entity>
