@@ -6,65 +6,46 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <title>Herbario Digital UIMQROO</title>
+
+    <script>
+        // SCRIPT PARA ACTIVAR EL AUDIO AL DETECTAR EL MARCADOR
+        AFRAME.registerComponent('audio-handler', {
+            init: function () {
+                this.marker = this.el;
+                this.sound = document.querySelector("#sonidoGuayaba");
+                
+                this.marker.addEventListener('markerFound', () => {
+                    this.sound.components.sound.playSound();
+                });
+                
+                this.marker.addEventListener('markerLost', () => {
+                    this.sound.components.sound.stopSound();
+                });
+            }
+        });
+    </script>
 </head>
+
 <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
         
-        <!-- 1. GUAYABA (Pichi’) -->
-        <a-marker type="pattern" url="guayaba.patt">
-            <!-- CONTENEDOR: Escala 0.25 (Equilibrio entre tamaño y distancia de enfoque) -->
+        <!-- CARGA DEL ARCHIVO DE AUDIO -->
+        <a-assets>
+            <audio id="audioGuayaba" src="guayaba.mp3" preload="auto"></audio>
+        </a-assets>
+
+        <!-- 1. GUAYABA (Pichi’) CON MANEJADOR DE AUDIO -->
+        <a-marker type="pattern" url="guayaba.patt" audio-handler>
+            
+            <!-- Entidad de Sonido -->
+            <a-entity id="sonidoGuayaba" sound="src: #audioGuayaba"></a-entity>
+
+            <!-- CONTENEDOR VISUAL (Tu escala excelente de 0.25) -->
             <a-entity scale="0.25 0.25 0.25">
-                <!-- PANEL: Más alto (height=6) para que quepa el uso medicinal sin encimarse -->
                 <a-plane rotation="-90 0 0" width="4.5" height="6" color="#1b4332" material="opacity: 0.9"></a-plane>
-                
-                <!-- TÍTULO: Subido a -2.2 para dar espacio -->
                 <a-text value="Pichi' (Guayaba)" position="0 0.2 -2.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                
-                <!-- NOMBRE CIENTÍFICO: En el centro (0) -->
                 <a-text value="Psidium guajava" position="0 0.2 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
-                
-                <!-- USO MEDICINAL: Bajado a 2.2 para que NO se encime y sea visible -->
                 <a-text value="Uso: Antidiarreico y para\nproblemas estomacales." position="0 0.2 2.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5" wrap-count="25"></a-text>
-            </a-entity>
-        </a-marker>
-
-        <!-- 2. ALBAHACA (X'kakaltuum) -->
-        <a-marker type="pattern" url="albahaca.patt">
-            <a-entity scale="0.25 0.25 0.25">
-                <a-plane rotation="-90 0 0" width="4.5" height="6" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="X'kakaltuum (Albahaca)" position="0 0.2 -2.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Ocimum campechianum" position="0 0.2 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
-                <a-text value="Uso: Alivio de la fiebre y\nproblemas digestivos." position="0 0.2 2.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5" wrap-count="25"></a-text>
-            </a-entity>
-        </a-marker>
-
-        <!-- 3. SÁBILA (Hunab-ku) -->
-        <a-marker type="pattern" url="sabila.patt">
-            <a-entity scale="0.25 0.25 0.25">
-                <a-plane rotation="-90 0 0" width="4.5" height="6" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="Hunab-ku (Sabila)" position="0 0.2 -2.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Aloe vera" position="0 0.2 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
-                <a-text value="Uso: Quemaduras, golpes e\nirritaciones cutaneas." position="0 0.2 2.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5" wrap-count="25"></a-text>
-            </a-entity>
-        </a-marker>
-
-        <!-- 4. MAGUEY MORADO (Chak ts'am) -->
-        <a-marker type="pattern" url="maguey.patt">
-            <a-entity scale="0.25 0.25 0.25">
-                <a-plane rotation="-90 0 0" width="4.5" height="6" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="Chak ts'am (Maguey)" position="0 0.2 -2.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Tradescantia spathacea" position="0 0.2 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
-                <a-text value="Uso: Antiinflamatorio y para\nafecciones respiratorias." position="0 0.2 2.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5" wrap-count="25"></a-text>
-            </a-entity>
-        </a-marker>
-
-        <!-- 5. RUDA (Lool) -->
-        <a-marker type="pattern" url="ruda.patt">
-            <a-entity scale="0.25 0.25 0.25">
-                <a-plane rotation="-90 0 0" width="4.5" height="6" color="#1b4332" material="opacity: 0.9"></a-plane>
-                <a-text value="Lool (Ruda)" position="0 0.2 -2.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
-                <a-text value="Ruta chalepensis" position="0 0.2 0" rotation="-90 0 0" align="center" color="#FFF000" width="4.5"></a-text>
-                <a-text value="Uso: Dolores de oido, colicos\ny 'mal aire'." position="0 0.2 2.2" rotation="-90 0 0" align="center" color="#d8f3dc" width="3.5" wrap-count="25"></a-text>
             </a-entity>
         </a-marker>
 
