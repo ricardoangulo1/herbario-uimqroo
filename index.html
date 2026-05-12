@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <title>Herbario Digital UIMQROO - Guayaba</title>
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        
+        <a-marker type="pattern" url="guayaba.patt">
+            
+            <!-- PANEL DE FONDO MÁS ANCHO -->
+            <!-- Aumentamos width a 4 y height a 2.5 para que nada se salga -->
+            <a-plane 
+                position="0 0.5 0" 
+                rotation="-70 0 0" 
+                width="4.2" height="2.8" 
+                color="#1b4332" 
+                material="opacity: 0.9; transparent: true; side: double">
+            </a-plane>
+
+            <!-- TEXTOS REUBICADOS (Todos con X=0 para centrar) -->
+            
+            <!-- 1. Nombre Maya y Español (Pichi') -->
+            <a-text 
+                value="Pichi' (Guayaba)" 
+                position="0 0.8 0.1" 
+                rotation="-70 0 0" 
+                align="center" 
+                color="#FFFFFF" 
+                width="5.5">
+            </a-text>
+
+            <!-- 2. Nombre Científico (Psidium guajava) -->
+            <!-- Bajamos un poco el tamaño (width) para que no se salga -->
+            <a-text 
+                value="Psidium guajava" 
+                position="0 0.2 0.1" 
+                rotation="-70 0 0" 
+                align="center" 
+                color="#FFF000" 
+                width="3.5">
+            </a-text>
+
+            <!-- 3. Uso Medicinal (Antidiarreico) -->
+            <!-- Cambiamos la posición a -0.5 para que entre en el cuadro -->
+            <a-text 
+                value="Uso: Antidiarreico y para\nproblemas estomacales." 
+                position="0 -0.5 0.1" 
+                rotation="-70 0 0" 
+                align="center" 
+                color="#d8f3dc" 
+                width="2.8">
+            </a-text>
+
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
