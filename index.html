@@ -7,19 +7,41 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <title>Herbario Digital UIMQROO</title>
 
+    <style>
+        /* Estilo para el botón del PDF */
+        .btn-saber-mas {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 25px;
+            background-color: #1b4332;
+            color: white;
+            border: 2px solid #FFF000;
+            border-radius: 30px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            display: none; /* Oculto por defecto */
+            z-index: 999;
+            text-decoration: none;
+        }
+    </style>
+
     <script>
-        // SCRIPT PARA ACTIVAR EL AUDIO AL DETECTAR EL MARCADOR
-        AFRAME.registerComponent('audio-handler', {
+        AFRAME.registerComponent('guayaba-handler', {
             init: function () {
                 this.marker = this.el;
                 this.sound = document.querySelector("#sonidoGuayaba");
+                this.button = document.querySelector("#btnPdf");
                 
                 this.marker.addEventListener('markerFound', () => {
-                    this.sound.components.sound.playSound();
+                    this.sound.components.sound.playSound(); // Reproduce audio en maya
+                    this.button.style.display = 'block';     // Muestra el botón del PDF
                 });
                 
                 this.marker.addEventListener('markerLost', () => {
                     this.sound.components.sound.stopSound();
+                    this.button.style.display = 'none';      // Oculta el botón
                 });
             }
         });
@@ -27,20 +49,20 @@
 </head>
 
 <body style="margin: 0px; overflow: hidden;">
+    <!-- BOTÓN QUE ABRE EL PDF -->
+    <a href="guayaba_info.pdf" target="_blank" id="btnPdf" class="btn-saber-mas">
+        📄 LEER RECETA COMPLETA
+    </a>
+
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-        
-        <!-- CARGA DEL ARCHIVO DE AUDIO -->
         <a-assets>
             <audio id="audioGuayaba" src="guayaba.mp3" preload="auto"></audio>
         </a-assets>
 
-        <!-- 1. GUAYABA (Pichi’) CON MANEJADOR DE AUDIO -->
-        <a-marker type="pattern" url="guayaba.patt" audio-handler>
-            
-            <!-- Entidad de Sonido -->
+        <!-- MARCADOR DE GUAYABA -->
+        <a-marker type="pattern" url="guayaba.patt" guayaba-handler>
             <a-entity id="sonidoGuayaba" sound="src: #audioGuayaba"></a-entity>
 
-            <!-- CONTENEDOR VISUAL (Tu escala excelente de 0.25) -->
             <a-entity scale="0.25 0.25 0.25">
                 <a-plane rotation="-90 0 0" width="4.5" height="6" color="#1b4332" material="opacity: 0.9"></a-plane>
                 <a-text value="Pichi' (Guayaba)" position="0 0.2 -2.2" rotation="-90 0 0" align="center" color="#FFFFFF" width="6"></a-text>
